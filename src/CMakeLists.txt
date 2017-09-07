@@ -40,6 +40,9 @@ file(GLOB TIOGA_HEADERS *.h)
 
 add_library(tioga ${TIOGA_SOURCES})
 target_link_libraries(tioga ${MPI_LIBRARIES} ${CMAKE_DL_LIBS})
+target_include_directories(tioga PUBLIC ${MPI_C_INCLUDE_PATH})
+
+# set_target_properties(tioga PROPERTIES COMPILE_FLAGS "-std=c++11 -fPIC")
 
 if(MPI_COMPILE_FLAGS)
   set_target_properties(tioga PROPERTIES
